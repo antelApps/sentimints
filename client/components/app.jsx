@@ -3,7 +3,6 @@ import ReactDOM from "react-dom";
 
 import Menu from "./menu.jsx"
 import Navbar from "./navbar.jsx"
-// import Results from "./results.jsx"
 import UserActions from '../actions/userActions.jsx'
 
 class App extends React.Component {
@@ -30,5 +29,4 @@ class App extends React.Component {
   }
 }
 
-	// <Results/>
 ReactDOM.render(<App/>, document.getElementById('app'));
