@@ -69,9 +69,11 @@ var topic = data.topic;
       // draw the y axis
       var yAxis = d3.svg.axis()
     .scale(y)
-    .orient('left');
+    .orient('left')
+    .append('text')
+    .text(topic);
 
-      main.append('g')
+  main.append('g')
     .attr('transform', 'translate(0,0)')
     .classed('main axis date', true)
     .call(yAxis);
