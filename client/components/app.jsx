@@ -18,6 +18,7 @@ class App extends React.Component {
       data_aggregate: null,
       data_topical: null,
       data_label: 'All Reviews',
+      
     };
   }
 
