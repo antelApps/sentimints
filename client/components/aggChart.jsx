@@ -50,13 +50,13 @@ var topic = data.topic.toUpperCase();
     var chart = d3.select(ReactFauxDom.createElement('svg'))
     .attr('width', width + margin.right + margin.left)
     .attr('height', height + margin.top + margin.bottom)
-    .attr('class', 'chart')
+    .attr('class', 'chart');
 
       var main = chart.append('g')
     .attr('transform', 'translate(' + margin.left + ',' + margin.top + ')')
     .attr('width', width)
     .attr('height', height)
-    .attr('class', 'main')   
+    .attr('class', 'main'); 
           
       // draw the x axis
       var xAxis = d3.svg.axis()
@@ -74,7 +74,7 @@ var topic = data.topic.toUpperCase();
     .orient('left')
 
     main.append('text')
-        .attr('x', 10)
+        .attr('x', 60)
         .attr('y', -5)
         .style('text-anchor', 'middle')
         .style('font-size', 15)
