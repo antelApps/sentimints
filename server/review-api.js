@@ -11,13 +11,18 @@ var MintAPI = module.exports = express.Router()
 
 MintAPI.get('/', function(req, res) {
   console.log('inside / endpoint')
+  console.log('req query', req.query);
   var business_name = req.query.business_name + ''
   var stars = req.query.business_stars.split('_')
-  var dates = req.query.business_date.split('_')
+  var dates = req.query.business_dates.split('_')
   return db.selectAllReviews(business_name, stars, dates)
   .then(function(reviews){
-    console.log('mah reviews are', reviews);
-    return sentiments.getAllFromReviews(reviews);
+    // console.log('mah reviews are', reviews);
+    if (reviews.length === 0) {
+      res.status(400).send('No results for this query');
+    } else {
+      return sentiments.getAllFromReviews(reviews);
+    }
   })
   .then(function(sentiments){
     res.send(sentiments)
@@ -34,7 +39,12 @@ MintAPI.get('/stars', function(req, res) {
   var stars = req.query.business_stars.split('_')
   return db.selectByStars(business_name, stars)
   .then(function(reviews){
-    return sentiments.getAllFromReviews(reviews)
+    if (reviews.length === 0) {
+      console.log('no reviews')
+      res.status(400).send('No results for this query');
+    } else {
+      return sentiments.getAllFromReviews(reviews);
+    }
   })
   .then(function(sentiments){
     res.send(sentiments)
@@ -48,10 +58,14 @@ MintAPI.get('/stars', function(req, res) {
 MintAPI.get('/date', function(req, res) {
   console.log('inside /date endpoint')
   var business_name = req.query.business_name + ''
-  var dates = req.query.business_date.split('_')
+  var dates = req.query.business_dates.split('_')
   return db.selectByDate(business_name, dates)
   .then(function(reviews){
-    return sentiments.getAllFromReviews(reviews)
+    if (reviews.length === 0) {
+      res.status(400).send('No results for this query');
+    } else {
+      return sentiments.getAllFromReviews(reviews);
+    }
   })
   .then(function(sentiments){
     res.send(sentiments)
