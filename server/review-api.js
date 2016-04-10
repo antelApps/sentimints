@@ -11,7 +11,9 @@ var MintAPI = module.exports = express.Router()
 
 MintAPI.get('/', function(req, res) {
   var business_name = req.query.business_name + ''
-  db.selectAllReviews(business_name)
+  var stars = req.query.business_stars.split('_')
+  var dates = req.query.business_date.split('_')
+  return db.selectAllReviews(business_name, stars, dates)
   .then(function(reviews){
     return sentiments.getAllFromReviews(reviews);
   })
@@ -27,7 +29,7 @@ MintAPI.get('/', function(req, res) {
 MintAPI.get('/stars', function(req, res) {
   var business_name = req.query.business_name + ''
   var stars = req.query.business_stars.split('_')
-  db.selectByStars(business_name, stars)
+  return db.selectByStars(business_name, stars)
   .then(function(reviews){
     return sentiments.getAllFromReviews(reviews)
   })
@@ -43,7 +45,7 @@ MintAPI.get('/stars', function(req, res) {
 MintAPI.get('/date', function(req, res) {
   var business_name = req.query.business_name + ''
   var dates = req.query.business_date.split('_')
-  db.selectByDate(business_name, dates)
+  return db.selectByDate(business_name, dates)
   .then(function(reviews){
     return sentiments.getAllFromReviews(reviews)
   })

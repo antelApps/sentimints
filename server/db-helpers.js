@@ -3,12 +3,14 @@ const env = process.env.NODE_ENV || 'development';
 const knex = require('knex')(config[env]);
 
 // can select by business
-exports.selectAllReviews = function (business) {
+exports.selectAllReviews = function (business, stars, dateRange) {
   return exports.selectBusinessID(business)
               .then(busID => {
                 return knex.select('*')
                             .from('reviews')
-                            .where('business_id_fk', busID);
+                            .whereBetween('review_date', dateRange)
+                            .whereBetween('review_stars', stars)
+                            .andWhere('business_id_fk', busID);
               })
               .then(reviews => {
                 console.log('reviews', reviews);
