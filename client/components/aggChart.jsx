@@ -6,7 +6,8 @@ export default class AggregateChart extends React.Component{
 
   render () {
 
-    var data = this.props.data;
+    // var data = this.props.data;
+    console.log('prop', this)
 // var data =  { topic: 'bed', stats: 
 //     [ { name: 'bed_num', value: 2, group: 'best' },
 //       { name: 'bed_sum', value: 0.10598629929273662, group: 'best' },

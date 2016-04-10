@@ -58,8 +58,7 @@ UserActions.getReviewsByDate = function(name, dateRange) {
         console.error("Didn't get data :(", err);
         reject(err);
       });      
-  }
-
+  })
 }
 
 export default UserActions;
