@@ -28,7 +28,7 @@ html, body{
 .selectors {
 	clear: both;
 	margin: 0px auto;
-} 		  
+}	  
 .data-vis{
 	float: right;
 	position: relative;
@@ -38,4 +38,20 @@ html, body{
 .onlyButton{
 	width: 100%;
 	margin:5px auto;
+}
+.chartbucket{
+	margin-left: 300px;
+	width: 100%;
+}
+.view-options{
+	width: 100%;
+}
+.view-btn{
+	width: 20%;
+}
+.active{
+	display: inline;
+}
+.inactive{
+	display: none;
 }

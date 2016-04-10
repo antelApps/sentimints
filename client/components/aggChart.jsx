@@ -1,6 +1,6 @@
 import React from 'react';
 import ReactFauxDom from 'react-faux-dom';
-let d3 = require('d3');
+import d3 from 'd3';
 
 export default class AggregateChart extends React.Component{
 
