@@ -4,7 +4,9 @@ import BusinessSelect from './businessSelect.jsx'
 import StarSelect from './starSelect.jsx'
 import UserActions from '../actions/userActions.jsx'
 import DatePicker from 'react-date-picker'
-require('react-date-picker/index.css'); //once css loader works should be fine.
+// require('react-date-picker/index.css'); //once css loader works should be fine.
+// require('react-date-picker/index.css'); //once css loader works should be fine.
+
 
 
 var businessNames = ["Pitsburgh Steelers", "Tom's Diner", "Cain's Saloon", "The Westin Charlotte", "Rock Bottom", "Mitchell's Fish Market", "Pino's Contemporary Italian Restaurant & Wine Bar", "Tazza D'oro Cafe & Espresso Bar"];
