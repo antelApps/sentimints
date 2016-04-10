@@ -28,9 +28,6 @@ export default class Chartbucket extends React.Component {
 			activateNew[type + '_active'] = 'active';
 			this.setState(activateNew);
 		}
-		// let state
-		// this.setState(type + '_active', 'active');
-		// console.log('state is', this.state)
 	}
 
   render() {
