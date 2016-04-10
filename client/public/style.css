@@ -5,17 +5,6 @@ html, body{
 	position: relative;
 }
 
-
-/*.navbar{
-
-}*/
-
-.searchBar{
-	text-align: center;
-}
-.searchBar > input{
-
-}
-.searchBar > button{
-
+#app {
+  
 }

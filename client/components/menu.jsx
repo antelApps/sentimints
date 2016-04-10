@@ -1,10 +1,10 @@
 import React from 'react'
 import ReactDOM from 'react-dom'
-import DatePicker from 'react-date-picker'
 import BusinessSelect from './businessSelect.jsx'
 import StarSelect from './starSelect.jsx'
-// import 'react-date-picker.css'
-// require('react-date-picker/index.css'); //once css loader works should be fine.
+import UserActions from '../actions/userActions.jsx'
+import DatePicker from 'react-date-picker'
+require('react-date-picker/index.css'); //once css loader works should be fine.
 
 
 var businessNames = ["test", "test2", "test3"];
@@ -53,8 +53,6 @@ export default class Menu extends React.Component{
 				  date={Date.now()}
 				  onChange={this.handleDateChange.bind(this, "start")}
 				/>
-
-				End Date:
 				<DatePicker
 				  minDate='2014-04-04'
 				  maxDate='2015-10-10'
