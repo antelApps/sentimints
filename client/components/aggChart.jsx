@@ -21,8 +21,13 @@ export default class AggregateChart extends React.Component{
 //    };
 
 
-var sampleSize = data.stats.shift();
-var topic = data.topic.toUpperCase();
+console.log('includes', this.props.data.stats[0].name.includes('num'), this.props.data.stats[0].name)
+
+
+if (this.props.data.stats[0].name.includes('num')){
+  var sampleSize = data.stats.shift();
+}
+  var topic = data.topic.toUpperCase();
 //first forEach topic subarray stats
 //this is just the for each on render
 
@@ -31,9 +36,9 @@ var topic = data.topic.toUpperCase();
 
 
     // var data = [[5,3], [10,17], [15,4], [2,8]];
-    var margin = {top: 20, right: 15, bottom: 60, left: 7},
+    var margin = {top: 20, right: 15, bottom: 10, left: 7},
       width = 800 - margin.left - margin.right,
-      height = 200 - margin.top - margin.bottom;
+      height = 100 - margin.top - margin.bottom;
     
     var x = d3.scale.linear()
               .domain([-100, 100])
