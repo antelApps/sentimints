@@ -34,6 +34,7 @@ MintAPI.get('/', function(req, res) {
     }
   })
   .then(function(sentiments){
+    console.log('sentiments', sentiments.topical.best[0].stats);
     res.send(sentiments)
   })
   .catch(function(err){
