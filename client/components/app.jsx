@@ -3,7 +3,6 @@ import ReactDOM from "react-dom";
 
 import Menu from "./menu.jsx"
 import Navbar from "./navbar.jsx"
-import Results from "./results.jsx"
 import UserActions from '../actions/userActions.jsx'
 
 class App extends React.Component {
@@ -25,7 +24,6 @@ class App extends React.Component {
 			  <Navbar/>
 				<Menu onSearch={this.handleSearch.bind(this)}/>
         {/* Footer with powered by __ */}
-	      <Results/>
       </div>
     )
   }
