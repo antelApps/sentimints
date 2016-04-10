@@ -7,7 +7,8 @@ import DatePicker from 'react-date-picker'
 require('react-date-picker/base.css');
 require('react-date-picker/theme/hackerone.css');
 
-var businessNames = ["-- Select a Business --", "Pitsburgh Steelers", "Tom's Diner", "Cain's Saloon", "The Westin Charlotte", "Rock Bottom", "Mitchell's Fish Market", "Pino's Contemporary Italian Restaurant & Wine Bar", "Tazza D'oro Cafe & Espresso Bar"];
+var businessNames = ["-- Select a Business --", "Pittsburgh Steelers", "Tom's Diner", "Cain's Saloon", "The Westin Charlotte", "Rock Bottom", "Mitchell's Fish Market", "Pino's Contemporary Italian Restaurant & Wine Bar", "Tazza D'oro Cafe & Espresso Bar"];
+
 export default class Menu extends React.Component{
 
   constructor() {

@@ -10,11 +10,20 @@ var MintAPI = module.exports = express.Router()
 //{ mergeParams: true }
 
 MintAPI.get('/', function(req, res) {
+<<<<<<< HEAD
   console.log('inside / endpoint')
   console.log('req query', req.query);
+=======
+  console.log('reqQuery', req.query);
+>>>>>>> promises are a bitch sometimes
   var business_name = req.query.business_name + ''
+  business_name = business_name.replace('%20', ' ');
   var stars = req.query.business_stars.split('_')
   var dates = req.query.business_dates.split('_')
+<<<<<<< HEAD
+=======
+  console.log('name', business_name);
+>>>>>>> promises are a bitch sometimes
   return db.selectAllReviews(business_name, stars, dates)
   .then(function(reviews){
     // console.log('mah reviews are', reviews);
