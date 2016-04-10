@@ -7,7 +7,7 @@ import DatePicker from 'react-date-picker'
 require('react-date-picker/index.css'); //once css loader works should be fine.
 
 
-var businessNames = ["test", "test2", "test3"];
+var businessNames = ["Pitsburgh Steelers", "Tom's Diner", "Cain's Saloon", "The Westin Charlotte", "Rock Bottom", "Mitchell's Fish Market", "Pino's Contemporary Italian Restaurant & Wine Bar", "Tazza D'oro Cafe & Espresso Bar"];
 
 export default class Menu extends React.Component{
 
@@ -28,14 +28,14 @@ export default class Menu extends React.Component{
 	handleBusinessChange(newState){
 		var component = this;
 		this.setState({business: newState}, function(){
-			console.log("new business value: ", component.state.business, newState);		
+			console.log("new business value: ", component.state.business, newState);
 		})
 	}
 
 	handleStarChange(newState){
 		var component = this;
 		this.setState({star: newState}, function(){
-			console.log("new star value: ", component.state.star, newState);		
+			console.log("new star value: ", component.state.star, newState);
 		})
 	}
 
