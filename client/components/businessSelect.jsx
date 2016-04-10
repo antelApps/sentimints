@@ -3,9 +3,9 @@ import ReactDOM from "react-dom"
 
 export default class BusinessSelect extends React.Component{
 
-	handleChange(e){
-		this.props.onChange(e.target.value);
-	}
+  handleChange(e){
+    this.props.onChange(e.target.value);
+  }
 
 	render(){
 		return (
@@ -19,3 +19,4 @@ export default class BusinessSelect extends React.Component{
 		)
 	}
 }
+
