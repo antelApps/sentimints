@@ -4,8 +4,8 @@ import BusinessSelect from './businessSelect.jsx'
 import StarSelect from './starSelect.jsx'
 import UserActions from '../actions/userActions.jsx'
 import DatePicker from 'react-date-picker'
-require('react-date-picker/base.css'); //once css loader works should be fine.
-require('react-date-picker/theme/hackerone.css'); //once css loader works should be fine.
+require('react-date-picker/base.css');
+require('react-date-picker/theme/hackerone.css');
 
 var businessNames = ["Pitsburgh Steelers", "Tom's Diner", "Cain's Saloon", "The Westin Charlotte", "Rock Bottom", "Mitchell's Fish Market", "Pino's Contemporary Italian Restaurant & Wine Bar", "Tazza D'oro Cafe & Espresso Bar"];
 
@@ -68,29 +68,33 @@ export default class Menu extends React.Component{
 
 	render(){
 		return (
-			<div>
-				Start Date:
-				<DatePicker
-				  minDate='2006-04-04'
-				  maxDate='2016-10-10'
-				  date={Date.now()}
-				  onChange={this.handleDateChange.bind(this, "start")}
-				/>
-				<DatePicker
-				  minDate='2006-04-04'
-				  maxDate='2016-10-10'
-				  date={Date.now()}
-				  onChange={this.handleDateChange.bind(this, "end")}
-				/>
+			<div className="container col-md-offset-2 col-md-8 col-sm-offset-0 col-sm-12">
+			 <div className="datecontainer left">
+					Start Date:
+					<DatePicker
+					  minDate='2006-04-04'
+					  maxDate='2016-10-10'
+					  date={Date.now()}
+					  onChange={this.handleDateChange.bind(this, "start")}
+					/>
+					<DatePicker
+					  minDate='2006-04-04'
+					  maxDate='2016-10-10'
+					  date={Date.now()}
+					  onChange={this.handleDateChange.bind(this, "end")}
+					/>
+				</div>
 
-				<BusinessSelect businessNames={businessNames} onChange={this.handleBusinessChange.bind(this)}/>
+				<div className="selectors">
+					<BusinessSelect businessNames={businessNames} onChange={this.handleBusinessChange.bind(this)}/>
 
-				Min Star:
-				<StarSelect onChange={this.handleStarChange.bind(this, 'min')}/>
-				Max Star
-				<StarSelect onChange={this.handleStarChange.bind(this, 'max')}/>
+					Min Star:
+					<StarSelect onChange={this.handleStarChange.bind(this, 'min')}/>
+					Max Star
+					<StarSelect onChange={this.handleStarChange.bind(this, 'max')}/>
 
-				<button onClick={this.handleButtonClick.bind(this)}> Go </button>
+					<button className="btn btn-md btn-primary col-md-4 col-md-offset-4 col-sm-6 col-sm-offset-0" onClick={this.handleButtonClick.bind(this)}> Go </button>
+				</div>
 			</div>
 		)
 	}
