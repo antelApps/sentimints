@@ -36,13 +36,14 @@ export default class Chartbucket extends React.Component {
 
   render() {
   	return ( 
-  	<div className="chartbucket"> <h4>{this.props.title}</h4>
+  	<div className="chartbucket"> 
 	  	<div className="view-options">
 	  	  <button className="view-btn" onClick={this.handleClick.bind(this, 'aggregate')}>Aggregate</button>
 	  	  <button className="view-btn" onClick={this.handleClick.bind(this, 'positive')}>Consumers Love These</button>
 	  	  <button className="view-btn" onClick={this.handleClick.bind(this, 'negative')}>Consumers Hate These</button>
 	  	  <button className="view-btn" onClick={this.handleClick.bind(this, 'hot')}>Most Mentioned</button>
 	  	</div>
+  		<h4>{this.props.title}</h4>
 
 	  	<div className="view-frame">
 	  	  <AggChart className={this.state.aggregate_active} width={180} height={60} data={[10, 16, 5, 22, 3, 11]} />
