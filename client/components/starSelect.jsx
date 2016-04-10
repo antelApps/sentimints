@@ -15,7 +15,7 @@ export default class StarSelect extends React.Component{
 			  		return (<option key={index} value={cur}> {cur} </option>)
 			  	})}
 			  </select>
-			</div>	
+			</div>
 		)
 	}
 }
