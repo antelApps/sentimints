@@ -3,6 +3,7 @@ html, body{
 	padding: 0;
 	display: block;
 	position: relative;
+	font-family: 'Source Sans Pro', sans-serif;
 }
 
 .nav{
@@ -33,4 +34,8 @@ html, body{
 	position: relative;
   top: 400px;
   right: 300px;
+}
+.onlyButton{
+	width: 100%;
+	margin:5px auto;
 }

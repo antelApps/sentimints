@@ -100,7 +100,7 @@ export default class Menu extends React.Component{
 					Max Star
 					<StarSelect onChange={this.handleStarChange.bind(this, 'max')}/>
 
-					<button className="btn btn-md btn-primary col-md-4 col-md-offset-4 col-sm-6 col-sm-offset-0" onClick={this.handleButtonClick.bind(this)}> Go </button>
+					<button className="onlyButton btn btn-primary " onClick={this.handleButtonClick.bind(this)}> Go </button>
 				</div>
 			</div>
 		)
