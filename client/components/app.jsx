@@ -11,7 +11,7 @@ class App extends React.Component {
     this.state = {selectValue: null};
   }
 
-  handleSearch(startDate, endDate, Business){
+  handleSearch(startDate, endDate, business, star){
     console.log("handleSearch args", arguments)
 
     //ajax call to server
