@@ -13,14 +13,14 @@ export default class Chartbucket extends React.Component {
 		super();
 		this.state = {
 			aggregate_active: 'active',
-			postive_active: 'inactive',
+			positive_active: 'inactive',
 			negative_active: 'inactive',
 			hot_active: 'inactive'
 		}
 	}
 
   	handleClick(type) {
-		let relevantStates = ['aggregate_active', 'postive_active', 'negative_active', 'hot_active'];
+		let relevantStates = ['aggregate_active', 'positive_active', 'negative_active', 'hot_active'];
 		let active = relevantStates.filter( state => this.state[state] === 'active')[0]
 		console.log('actiive is', active);
 		if (active !== type + '_active') { //need to change which is active
