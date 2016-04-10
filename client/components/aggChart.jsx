@@ -6,19 +6,20 @@ export default class AggregateChart extends React.Component{
 
   render () {
 
-    // var data = this.props.data;
-    console.log('prop', this.props)
-var data =  { topic: 'bed', stats: 
-    [ { name: 'bed_num', value: 2, group: 'best' },
-      { name: 'bed_sum', value: 0.10598629929273662, group: 'best' },
-      { name: 'bed_avg', value: 0.05299314964636831, group: 'best' },
-      { name: 'bed_min', value: -0.7176687736973063, group: 'best' },
-      { name: 'bed_q1', value: -0.7176687736973063, group: 'best' },
-      { name: 'bed_median', value: 0.05299314964636831, group: 'best' },
-      { name: 'bed_q3', value: 0.8236550729900429, group: 'best' },
-      { name: 'bed_max', value: 0.8236550729900429, group: 'best' } 
-    ] 
-   };
+    var data = this.props.data;
+    console.log('graph prop', this.props.data)
+// var data =  { topic: 'bed', stats: 
+//     [ { name: 'bed_num', value: 2, group: 'best' },
+//       { name: 'bed_sum', value: 0.10598629929273662, group: 'best' },
+//       { name: 'bed_avg', value: 0.05299314964636831, group: 'best' },
+//       { name: 'bed_min', value: -0.7176687736973063, group: 'best' },
+//       { name: 'bed_q1', value: -0.7176687736973063, group: 'best' },
+//       { name: 'bed_median', value: 0.05299314964636831, group: 'best' },
+//       { name: 'bed_q3', value: 0.8236550729900429, group: 'best' },
+//       { name: 'bed_max', value: 0.8236550729900429, group: 'best' } 
+//     ] 
+//    };
+
 
 var sampleSize = data.stats.shift();
 var topic = data.topic.toUpperCase();
