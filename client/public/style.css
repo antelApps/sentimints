@@ -5,6 +5,28 @@ html, body{
 	position: relative;
 }
 
-#app {
-  
+.selectContainer {
+	width: 25%;
+	margin: 0px auto;
 }
+.starSelect {
+	float: right;
+	margin: 0px auto;
+}
+.businessSelect {
+	float: left;
+	margin: 0px auto;
+}
+.date-container {
+	width: 25%;
+	margin: 0 auto;
+}
+.date-container.left {
+	float: left;
+}
+.date-container.right {
+	float: right;
+}
+.selectors {
+	clear: both;
+} 		  
