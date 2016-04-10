@@ -86,7 +86,7 @@ class App extends React.Component {
 			<div>
 			  <Navbar/>
 				<Menu onSearch={this.handleSearch.bind(this)}/>
-        <Chartbucket />
+        <Chartbucket title={this.state.data_label} data_aggregate={this.state.data_aggregate} data_topical={this.state.data_topical}/>
         {/* Footer with powered by __ */}
       </div>
     )
