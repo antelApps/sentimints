@@ -70,8 +70,8 @@ var topic = data.topic;
       var yAxis = d3.svg.axis()
     .scale(y)
     .orient('left')
-    .append('text')
-    .text(topic);
+    // .append('text')
+    // .text(topic);
 
   main.append('g')
     .attr('transform', 'translate(0,0)')
