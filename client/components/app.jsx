@@ -52,28 +52,25 @@ class App extends React.Component {
         console.log('will call get all reviews');
         return UserActions.getAllReviews(business, starRange, dateRange)
           .then( (data) => {
-            console.log('got data', data);
+            // console.log('got data', data);
             resolve(data);
           })
       } else if (dateRange) {
         console.log('get reviews by date');
         return UserActions.getReviewsByDate(business, dateRange)
           .then( (data) => {
-            console.log('got data', data);
             resolve(data);
           })
       } else if (starRange) {
         console.log('getting reviews by stars');
         return UserActions.getReviewsByStars(business, starRange)
           .then( (data) => {
-            console.log('got data', data);
             resolve(data);
           })
       } else {
         console.log('will call get all reviews');
         return UserActions.getAllReviews(business)
         .then( (data) => {
-          console.log('got data', data);
           resolve(data);
         })
       }
@@ -85,7 +82,6 @@ class App extends React.Component {
         data_topical: data.topical
       }
       this.setState(newStateData);
-      console.log('state is', this.state);
     })
     .catch( function(err) {
       console.log('Error handling search', err);
