@@ -7,7 +7,7 @@ import ReactFauxDom from 'react-faux-dom';
 export default class AggregateChart extends React.Component{
 
   render() {
-  	let faux = ReactFauxDom.createElement('div');
+  	let faux = ReactFauxDom.createElement('svg');
     // let svg = d3.select(faux).append('svg');
 
     var getData = function getData(){
