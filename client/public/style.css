@@ -64,3 +64,23 @@ html, body{
 .view-options > button:hover{
 	border: 1px solid white;
 }
+
+
+/* for d3 */
+.chart {
+
+}
+
+.main text {
+    font: 10px sans-serif;	
+}
+
+.axis line, .axis path {
+    shape-rendering: crispEdges;
+    stroke: black;
+    fill: none;
+}
+
+circle {
+    fill: steelblue;
+}

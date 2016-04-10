@@ -46,7 +46,7 @@ export default class Chartbucket extends React.Component {
   		<h4>{this.props.title}</h4>
 
 	  	<div className="view-frame">
-	  	  <AggChart className={this.state.aggregate_active} width={180} height={60} data={[10, 16, 5, 22, 3, 11]} />
+	  	  <AggChart className={this.state.aggregate_active} data={[]} />
 	  	  <PosChart className={this.state.positive_active} />
 	  	  <NegChart className={this.state.negative_active} />
 	  	  <TopChart className={this.state.hot_active} />
