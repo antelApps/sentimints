@@ -11,5 +11,4 @@ export default class PositiveChart extends React.Component{
   		</div>
     )
   }
-
 }
