@@ -7,7 +7,6 @@ export default class AggregateChart extends React.Component{
   render () {
 
     var data = this.props.data;
-    console.log('graph prop', this.props.data)
 // var data =  { topic: 'bed', stats: 
 //     [ { name: 'bed_num', value: 2, group: 'best' },
 //       { name: 'bed_sum', value: 0.10598629929273662, group: 'best' },
@@ -21,11 +20,12 @@ export default class AggregateChart extends React.Component{
 //    };
 
 
-console.log('includes', this.props.data.stats[0].name.includes('num'), this.props.data.stats[0].name)
 
 
 if (this.props.data.stats[0].name.includes('num')){
   var sampleSize = data.stats.shift();
+  var sum = data.stats.shift();
+  var avg = data.stats.shift();
 }
   var topic = data.topic.toUpperCase();
 //first forEach topic subarray stats
@@ -91,15 +91,12 @@ if (this.props.data.stats[0].name.includes('num')){
     .call(yAxis);
 
     var g = main.append("svg:g"); 
-    console.log('i am a console.log')
     g.selectAll("scatter-dots")
       .data(data.stats)
       .enter().append("svg:circle")
         .attr("cx", function (d,i) { 
-          console.log('cx', x(d.value))
           return x(d.value * 100); } )
         .attr("cy", function (d) { 
-          console.log('cy', y(d.name))
           return y(d.name); } )
         .attr("r", 8);
 

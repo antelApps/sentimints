@@ -23,7 +23,6 @@ export default class Chartbucket extends React.Component {
       this.setState({current: this.props.data_topical[type]});
 		let relevantStates = ['best_active', 'worst_active', 'hot_active'];
 		let active = relevantStates.filter( state => this.state[state] === 'active')[0]
-		console.log('actiive is', active);
 		if (active !== type + '_active') { //need to change which is active
 			let inactiveOld = {};
 			inactiveOld[active] = 'inactive';
@@ -69,9 +68,7 @@ export default class Chartbucket extends React.Component {
 class OtherCharts extends React.Component {
 
   render() {
-    console.log('props otherCharts', this.props)
     let mapped = this.props.data.map(function(topic){
-      console.log('the topic', topic);
       return <AggChart data={topic}/>
     })
     return (
