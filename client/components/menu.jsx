@@ -45,10 +45,17 @@ export default class Menu extends React.Component{
 	handleStarChange(minOrMax, newState){
 		var component = this;
 			if (minOrMax === 'min') {
+				if (component.state.endStar < newState) {
+					component.state.endStar = newState
+				}
 				this.setState({startStar: newState}, function(){
 				console.log("start star value: ", component.state.startStar, newState);
 				})
 			} else if (minOrMax === 'max') {
+				console.log('stst', component.state.startStar)
+				if (newState < component.state.startStar) {
+					newState = component.state.startStar
+				}
 				this.setState({endStar: newState}, function(){
 				console.log("end star value: ", component.state.endStar, newState);
 			})
