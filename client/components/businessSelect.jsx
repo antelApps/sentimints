@@ -10,7 +10,7 @@ export default class BusinessSelect extends React.Component{
 	render(){
 		return (
 			<div>
-			  <select onChange={this.handleChange.bind(this)}>
+			  <select className="form-control" onChange={this.handleChange.bind(this)}>
 			  	{this.props.businessNames.map(function(cur, index){
 			  		return (<option key={index} value={cur}> {cur} </option>)
 			  	})}

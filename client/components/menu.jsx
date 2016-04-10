@@ -68,16 +68,20 @@ export default class Menu extends React.Component{
 
 	render(){
 		return (
-			<div className="container col-md-offset-2 col-md-8 col-sm-offset-0 col-sm-12">
-			 <div className="datecontainer left">
+			<div className="sidebar col-md-offset-2 col-md-8 col-sm-offset-0 col-sm-12">
+			 <div className="datecontainer">
 					Start Date:
-					<DatePicker
+					<DatePicker 
+					  className="calendar"
 					  minDate='2006-04-04'
 					  maxDate='2016-10-10'
 					  date={Date.now()}
 					  onChange={this.handleDateChange.bind(this, "start")}
 					/>
-					<DatePicker
+
+					End Date:
+					<DatePicker 
+					  className="calendar"
 					  minDate='2006-04-04'
 					  maxDate='2016-10-10'
 					  date={Date.now()}
@@ -86,14 +90,17 @@ export default class Menu extends React.Component{
 				</div>
 
 				<div className="selectors">
+
+					Choose a Business:
 					<BusinessSelect businessNames={businessNames} onChange={this.handleBusinessChange.bind(this)}/>
 
 					Min Star:
 					<StarSelect onChange={this.handleStarChange.bind(this, 'min')}/>
+
 					Max Star
 					<StarSelect onChange={this.handleStarChange.bind(this, 'max')}/>
 
-					<button className="btn btn-md btn-primary col-md-4 col-md-offset-4 col-sm-6 col-sm-offset-0" onClick={this.handleButtonClick.bind(this)}> Go </button>
+					<button className="onlyButton btn btn-primary " onClick={this.handleButtonClick.bind(this)}> Go </button>
 				</div>
 			</div>
 		)

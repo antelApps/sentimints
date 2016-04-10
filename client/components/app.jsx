@@ -84,7 +84,7 @@ class App extends React.Component {
 			<div>
 			  <Navbar/>
 				<Menu onSearch={this.handleSearch.bind(this)}/>
-        <AggChart width={180} height={60} data={[10, 16, 5, 22, 3, 11]} />
+        <AggChart className="data-vis" width={180} height={60} data={[10, 16, 5, 22, 3, 11]} />
         {/* Footer with powered by __ */}
       </div>
     )
