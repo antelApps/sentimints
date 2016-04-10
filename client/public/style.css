@@ -85,5 +85,5 @@ html, body{
 }
 
 circle {
-    fill: steelblue;
+    fill: rgba(20,20,200,.4);
 }
