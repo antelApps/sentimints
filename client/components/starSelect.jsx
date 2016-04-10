@@ -1,7 +1,7 @@
 import React from "react"
 import ReactDOM from "react-dom"
 
-export default class BusinessSelect extends React.Component{
+export default class StarSelect extends React.Component{
 
 	handleChange(e){
 		this.props.onChange(e.target.value);
@@ -11,7 +11,7 @@ export default class BusinessSelect extends React.Component{
 		return (
 			<div>
 			  <select onChange={this.handleChange.bind(this)}>
-			  	{this.props.businessNames.map(function(cur, index){
+			  	{[1,2,3,4,5].map(function(cur, index){
 			  		return (<option key={index} value={cur}> {cur} </option>)
 			  	})}
 			  </select>
