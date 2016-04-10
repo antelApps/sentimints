@@ -49,7 +49,6 @@ class App extends React.Component {
     //Make the request and update the state
     return new Promise( (resolve, reject) => {
       if (dateRange && starRange) {
-<<<<<<< HEAD
         console.log('will call get all reviews');
         return UserActions.getAllReviews(business, starRange, dateRange)
           .then( (data) => {
@@ -83,29 +82,6 @@ class App extends React.Component {
         data_topical: data.topical
       }
       this.setState(newStateData);
-=======
-        return resolve(UserActions.getAllReviews(business, starRange, dateRange))
-      } else if (dateRange) {
-        return resolve(UserActions.getAllReviews(business, dateRange))
-      } else if (starRange) {
-        return resolve(UserActions.getAllReviews(business, starRange))
-      } else {
-        return resolve(UserActions.getAllReviews(business))
-      }
-    })
-    .then( function(data) {
-      console.log('inside then', data);
-      return data
-    })
-    .catch(function(err){
-      console.error('error before setState', err);
-    })
-    .then( function(data) {
-      console.log('inside last then')
-      this.setState(data_label, getlabelText());
-      this.setState(data_aggregate, data.aggregate);
-      this.setState(data_topical, data.data_topical);
->>>>>>> promises are a bitch sometimes
     })
     .catch( function(err) {
       console.error('Error handling search', err);
