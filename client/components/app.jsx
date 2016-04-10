@@ -16,48 +16,46 @@ class App extends React.Component {
     super();
     this.state = {
       selectValue: null,
-      data_aggregate: {best: { topic: 'bed', stats: 
-    [ { name: 'bed_num', value: 2, group: 'best' },
-      { name: 'bed_sum', value: 0.10598629929273662, group: 'best' },
-      { name: 'bed_avg', value: 0.05299314964636831, group: 'best' },
-      { name: 'bed_min', value: -0.7176687736973063, group: 'best' },
-      { name: 'bed_q1', value: -0.7176687736973063, group: 'best' },
-      { name: 'bed_median', value: 0.05299314964636831, group: 'best' },
-      { name: 'bed_q3', value: 0.8236550729900429, group: 'best' },
-      { name: 'bed_max', value: 0.8236550729900429, group: 'best' } 
-    ] 
-   }},
-      data_topical: {best: { topic: 'bed', stats: 
-    [ { name: 'bed_num', value: 2, group: 'best' },
-      { name: 'bed_sum', value: 0.10598629929273662, group: 'best' },
-      { name: 'bed_avg', value: 0.05299314964636831, group: 'best' },
-      { name: 'bed_min', value: -0.7176687736973063, group: 'best' },
-      { name: 'bed_q1', value: -0.7176687736973063, group: 'best' },
-      { name: 'bed_median', value: 0.05299314964636831, group: 'best' },
-      { name: 'bed_q3', value: 0.8236550729900429, group: 'best' },
-      { name: 'bed_max', value: 0.8236550729900429, group: 'best' } 
-    ] 
-   }, worst:{ topic: 'bed', stats: 
-    [ { name: 'bed_num', value: 2, group: 'best' },
-      { name: 'bed_sum', value: 0.10598629929273662, group: 'best' },
-      { name: 'bed_avg', value: 0.05299314964636831, group: 'best' },
-      { name: 'bed_min', value: -0.7176687736973063, group: 'best' },
-      { name: 'bed_q1', value: -0.7176687736973063, group: 'best' },
-      { name: 'bed_median', value: 0.05299314964636831, group: 'best' },
-      { name: 'bed_q3', value: 0.8236550729900429, group: 'best' },
-      { name: 'bed_max', value: 0.8236550729900429, group: 'best' } 
-    ] 
-   }, hot:{ topic: 'bed', stats: 
-    [ { name: 'bed_num', value: 2, group: 'best' },
-      { name: 'bed_sum', value: 0.10598629929273662, group: 'best' },
-      { name: 'bed_avg', value: 0.05299314964636831, group: 'best' },
-      { name: 'bed_min', value: -0.7176687736973063, group: 'best' },
-      { name: 'bed_q1', value: -0.7176687736973063, group: 'best' },
-      { name: 'bed_median', value: 0.05299314964636831, group: 'best' },
-      { name: 'bed_q3', value: 0.8236550729900429, group: 'best' },
-      { name: 'bed_max', value: 0.8236550729900429, group: 'best' } 
-    ] 
-   }},
+      data_aggregate: {best: [{ topic: 'bed', stats: 
+          [ { name: 'bed_num', value: 2, group: 'best' },
+            { name: 'bed_sum', value: 0.10598629929273662, group: 'best' },
+            { name: 'bed_avg', value: 0.05299314964636831, group: 'best' },
+            { name: 'bed_min', value: -0.7176687736973063, group: 'best' },
+            { name: 'bed_q1', value: -0.7176687736973063, group: 'best' },
+            { name: 'bed_median', value: 0.05299314964636831, group: 'best' },
+            { name: 'bed_q3', value: 0.8236550729900429, group: 'best' },
+            { name: 'bed_max', value: 0.8236550729900429, group: 'best' } ]
+    }] 
+   },
+      data_topical: {best: [{ topic: 'bed', stats: 
+          [ { name: 'bed_num', value: 2, group: 'best' },
+            { name: 'bed_sum', value: 0.10598629929273662, group: 'best' },
+            { name: 'bed_avg', value: 0.05299314964636831, group: 'best' },
+            { name: 'bed_min', value: -0.7176687736973063, group: 'best' },
+            { name: 'bed_q1', value: -0.7176687736973063, group: 'best' },
+            { name: 'bed_median', value: 0.05299314964636831, group: 'best' },
+            { name: 'bed_q3', value: 0.8236550729900429, group: 'best' },
+            { name: 'bed_max', value: 0.8236550729900429, group: 'best' } ]
+    }] , worst:[{ topic: 'bed', stats: 
+       [ { name: 'bed_num', value: 2, group: 'best' },
+         { name: 'bed_sum', value: 0.10598629929273662, group: 'best' },
+         { name: 'bed_avg', value: 0.05299314964636831, group: 'best' },
+         { name: 'bed_min', value: -0.7176687736973063, group: 'best' },
+         { name: 'bed_q1', value: -0.7176687736973063, group: 'best' },
+         { name: 'bed_median', value: 0.05299314964636831, group: 'best' },
+         { name: 'bed_q3', value: 0.8236550729900429, group: 'best' },
+         { name: 'bed_max', value: 0.8236550729900429, group: 'best' } ]
+    }] , hot : [{ topic: 'bed', stats: 
+       [ { name: 'bed_num', value: 2, group: 'best' },
+         { name: 'bed_sum', value: 0.10598629929273662, group: 'best' },
+         { name: 'bed_avg', value: 0.05299314964636831, group: 'best' },
+         { name: 'bed_min', value: -0.7176687736973063, group: 'best' },
+         { name: 'bed_q1', value: -0.7176687736973063, group: 'best' },
+         { name: 'bed_median', value: 0.05299314964636831, group: 'best' },
+         { name: 'bed_q3', value: 0.8236550729900429, group: 'best' },
+         { name: 'bed_max', value: 0.8236550729900429, group: 'best' } ]
+    }] 
+   },
       data_label: 'All Reviews',
     };
   }
