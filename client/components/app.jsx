@@ -128,6 +128,7 @@ class App extends React.Component {
   }
 
 	render() {
+    console.log('thisstate', this.state.data_topical)
 		return (
 			<div>
 			  <Navbar/>
