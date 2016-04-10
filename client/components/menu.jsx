@@ -7,12 +7,11 @@ import DatePicker from 'react-date-picker'
 require('react-date-picker/base.css');
 require('react-date-picker/theme/hackerone.css');
 
-var businessNames = ["Pitsburgh Steelers", "Tom's Diner", "Cain's Saloon", "The Westin Charlotte", "Rock Bottom", "Mitchell's Fish Market", "Pino's Contemporary Italian Restaurant & Wine Bar", "Tazza D'oro Cafe & Espresso Bar"];
-
+var businessNames = ["-- Select a Business --", "Pitsburgh Steelers", "Tom's Diner", "Cain's Saloon", "The Westin Charlotte", "Rock Bottom", "Mitchell's Fish Market", "Pino's Contemporary Italian Restaurant & Wine Bar", "Tazza D'oro Cafe & Espresso Bar"];
 export default class Menu extends React.Component{
 
-	constructor() {
-		super();
+  constructor() {
+    super();
     this.state = {
     	startDate: null,
     	endDate: null,
@@ -62,6 +61,7 @@ export default class Menu extends React.Component{
 		}
 	}
 
+<<<<<<< cbd0624fe73cf244f0980d6fd1b837a49e2a0ae2
 	handleButtonClick(){
 		this.props.onSearch(this.state.startDate, this.state.endDate, this.state.business, this.state.startStar, this.state.endStar);
 	}
