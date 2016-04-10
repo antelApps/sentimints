@@ -67,3 +67,23 @@ html, body{
 }
 .content{
 }
+
+
+/* for d3 */
+.chart {
+
+}
+
+.main text {
+    font: 10px sans-serif;	
+}
+
+.axis line, .axis path {
+    shape-rendering: crispEdges;
+    stroke: black;
+    fill: none;
+}
+
+circle {
+    fill: rgba(20,20,200,.4);
+}

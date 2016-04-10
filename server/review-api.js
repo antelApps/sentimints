@@ -14,7 +14,6 @@ MintAPI.get('/', function(req, res) {
   business_name = business_name.replace('%20', ' ');
   var stars = req.query.business_stars.split('_')
   var dates = req.query.business_dates.split('_')
-  console.log('name', business_name);
   return db.selectAllReviews(business_name, stars, dates)
   .then(function(reviews){
     // console.log('mah reviews are', reviews);

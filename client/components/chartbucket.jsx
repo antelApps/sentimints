@@ -35,6 +35,7 @@ export default class Chartbucket extends React.Component {
 	}
 
   render() {
+    console.log('topical', this.props)
   	return ( 
   	<div className="chartbucket"> 
 	  	<div className="view-options">
@@ -46,12 +47,9 @@ export default class Chartbucket extends React.Component {
   		<h4>{this.props.title}</h4>
 
 	  	<div className="view-frame">
-        <div className="content">
-	  	  {this.state.aggregate_active === 'active' ? <AggChart className={this.state.aggregate_active} width={180} height={60} data={[10, 16, 5, 22, 3, 11]} /> : null}
-	  	  {this.state.positive_active === 'active' ? <PosChart className={this.state.positive_active} /> : null}
-	  	  {this.state.negative_active === 'active' ? <NegChart className={this.state.negative_active} /> : null}
-	  	  {this.state.hot_active === 'active' ? <TopChart className={this.state.hot_active} /> : null}
-        </div>
+	  	  <OtherCharts className={this.state.positive_active} data={this.props.data_topical.best}/>
+	  	  <OtherCharts className={this.state.negative_active} data={this.props.data_topical.worst}/>
+	  	  <OtherCharts className={this.state.hot_active} data={this.props.data_topical.hot}/>
 	  	</div>
   	</div>
     )
@@ -59,6 +57,30 @@ export default class Chartbucket extends React.Component {
 
 
   //toggles which chart is visible
+        // <AggChart className={this.state.aggregate_active} data={this.props.data_aggregate}/>
 
 
 }
+
+/**/
+
+
+class OtherCharts extends React.Component {
+
+  render() {
+    console.log('props otherCharts', this.props)
+    let mapped = this.props.data.map(function(topic){
+      console.log('the topic', topic);
+      return <AggChart data={topic}/>
+    })
+    return (
+      <div>
+        {mapped}
+      </div>
+    )
+  }
+}
+
+
+
+
