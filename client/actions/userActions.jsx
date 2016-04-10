@@ -14,6 +14,9 @@ UserActions.getAllReviews = function(name, stars = [0, 5], dateRange = ['1900-01
         resolve(data);
       })
       .fail((err) => {
+        if (err.status === 400) {
+          alert(err.responseText);
+        }
         console.error("Didn't get data :(", err);
         reject(err);
       });      
@@ -30,6 +33,9 @@ UserActions.getReviewsByStars = function(name, stars) {
         resolve(data);
       })
       .fail((err) => {
+        if (err.status === 400) {
+          alert(err.responseText);
+        }
         console.error("Didn't get data :(", err);
         reject(err);
       });      
@@ -46,6 +52,9 @@ UserActions.getReviewsByDate = function(name, dateRange) {
         resolve(data);
       })
       .fail((err) => {
+        if (err.status === 400) {
+          alert(err.responseText);
+        }
         console.error("Didn't get data :(", err);
         reject(err);
       });      
