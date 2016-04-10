@@ -5,11 +5,23 @@ import Menu from "./menu.jsx"
 import Navbar from "./navbar.jsx"
 
 class App extends React.Component {
+
+  constructor() {
+    super();
+    this.state = {selectValue: null};
+  }
+
+  handleSearch(startDate, endDate, Business){
+    console.log("handleSearch args", arguments)
+
+    //ajax call to server
+  }
+
 	render() {
 		return (
 			<div>
 			  <Navbar/>
-				<Menu/>
+				<Menu onSearch={this.handleSearch.bind(this)}/>
 				{/* results */}
 				{/* Footer with powered by __ */}
 			</div>
