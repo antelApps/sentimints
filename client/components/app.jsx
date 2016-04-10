@@ -15,23 +15,25 @@ class App extends React.Component {
       selectValue: null,
       data_aggregate: null,
       data_topical: null,
-      data_label: 'All Reviews'
+      data_label: 'All Reviews',
     };
   }
 
-  handleSearch(startDate, endDate, business, star){
+
+  handleSearch(startDate, endDate, business, star1, star2){
     console.log("handleSearch args", arguments)
 
     //Package the dates into the object the requests are expecting
     let dateRange = startDate && endDate ? [startDate, endDate] : undefined;
+    let starRange = star1 && star2 ? [star1, star2] : undefined;
 
     //Format text for label
     let getDateRangeText = function() {
       return dateRange ? ' from ' + startDate + ' to ' + endDate : ''
     }
     let getStarText = function() {
-      if (star) {
-        return star[0] === star[1] ? ' with ' + star[0] + ' Stars' : ' with ' + star[0] + '-' + star[1] + ' Stars';
+      if (starRange) {
+        return star1 === star2 ? ' with ' + star1 + ' Stars' : ' with ' + star1 + '-' + star2 + ' Stars';
       } else {
         return '';
       }
@@ -44,8 +46,8 @@ class App extends React.Component {
 
     //Make the request and update the state
     return new Promise( function(resolve, reject) {
-      if (dateRange && star) {
-        return UserActions.getAllReviews(business, star, dateRange)
+      if (dateRange && starRange) {
+        return UserActions.getAllReviews(business, starRange, dateRange)
           .then( function(data) {
             resolve(data);
           })
@@ -54,8 +56,8 @@ class App extends React.Component {
           .then( function(data) {
             resolve(data);
           })
-      } else if (star) {
-        return UserActions.getReviewsByStars(business, star)
+      } else if (starRange) {
+        return UserActions.getReviewsByStars(business, starRange)
           .then( function(data) {
             resolve(data);
           })
