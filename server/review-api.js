@@ -10,11 +10,13 @@ var MintAPI = module.exports = express.Router()
 //{ mergeParams: true }
 
 MintAPI.get('/', function(req, res) {
+  console.log('inside / endpoint')
   var business_name = req.query.business_name + ''
   var stars = req.query.business_stars.split('_')
   var dates = req.query.business_date.split('_')
   return db.selectAllReviews(business_name, stars, dates)
   .then(function(reviews){
+    console.log('mah reviews are', reviews);
     return sentiments.getAllFromReviews(reviews);
   })
   .then(function(sentiments){
@@ -27,6 +29,7 @@ MintAPI.get('/', function(req, res) {
 })
 
 MintAPI.get('/stars', function(req, res) {
+  console.log('inside /stars endpoint');
   var business_name = req.query.business_name + ''
   var stars = req.query.business_stars.split('_')
   return db.selectByStars(business_name, stars)
@@ -43,6 +46,7 @@ MintAPI.get('/stars', function(req, res) {
 })
 
 MintAPI.get('/date', function(req, res) {
+  console.log('inside /date endpoint')
   var business_name = req.query.business_name + ''
   var dates = req.query.business_date.split('_')
   return db.selectByDate(business_name, dates)

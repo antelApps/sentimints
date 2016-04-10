@@ -38,6 +38,10 @@ app.use (function (req, res, next) {
 
 app.use(express.static(publicPath));
 
+
+var userRouter = require('./review-api')
+routes.use('/api/mint/', userRouter)
+
 routes.get('/*', function(req, res){
   res.sendFile(publicPath + '/index.html')
 });

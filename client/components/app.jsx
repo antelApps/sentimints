@@ -47,33 +47,41 @@ class App extends React.Component {
     }
 
     //Make the request and update the state
-    return new Promise( function(resolve, reject) {
+    return new Promise( (resolve, reject) => {
       if (dateRange && starRange) {
+        console.log('will call get all reviews');
         return UserActions.getAllReviews(business, starRange, dateRange)
-          .then( function(data) {
+          .then( (data) => {
+            // console.log('got data', data);
             resolve(data);
           })
       } else if (dateRange) {
+        console.log('get reviews by date');
         return UserActions.getReviewsByDate(business, dateRange)
-          .then( function(data) {
+          .then( (data) => {
             resolve(data);
           })
       } else if (starRange) {
+        console.log('getting reviews by stars');
         return UserActions.getReviewsByStars(business, starRange)
-          .then( function(data) {
+          .then( (data) => {
             resolve(data);
           })
       } else {
+        console.log('will call get all reviews');
         return UserActions.getAllReviews(business)
-        .then( function(data) {
+        .then( (data) => {
           resolve(data);
         })
       }
     })
-    .then( function(data) {
-      this.setState(data_label, getlabelText());
-      this.setState(data_aggregate, data.aggregate);
-      this.setState(data_topical, data.data_topical);
+    .then( (data) => {
+      let newStateData = {
+        data_label: getlabelText(),
+        data_aggregate: data.aggregate,
+        data_topical: data.topical
+      }
+      this.setState(newStateData);
     })
     .catch( function(err) {
       console.log('Error handling search', err);
