@@ -46,19 +46,10 @@ export default class Chartbucket extends React.Component {
   		<h4>{this.props.title}</h4>
 
 	  	<div className="view-frame">
-<<<<<<< 81568d08bc961ad6a8434362d21772997c6c7968
-        <div className="content">
-	  	  {this.state.aggregate_active === 'active' ? <AggChart className={this.state.aggregate_active} width={180} height={60} data={[10, 16, 5, 22, 3, 11]} /> : null}
-	  	  {this.state.positive_active === 'active' ? <PosChart className={this.state.positive_active} /> : null}
-	  	  {this.state.negative_active === 'active' ? <NegChart className={this.state.negative_active} /> : null}
-	  	  {this.state.hot_active === 'active' ? <TopChart className={this.state.hot_active} /> : null}
-        </div>
-=======
 	  	  <AggChart className={this.state.aggregate_active} data={[]} />
 	  	  <PosChart className={this.state.positive_active} />
 	  	  <NegChart className={this.state.negative_active} />
 	  	  <TopChart className={this.state.hot_active} />
->>>>>>> d3 chart works
 	  	</div>
   	</div>
     )
