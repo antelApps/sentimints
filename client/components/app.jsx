@@ -27,7 +27,7 @@ class App extends React.Component {
 
     //Package the dates into the object the requests are expecting
     let dateRange = startDate && endDate ? [startDate, endDate] : undefined;
-    let starRange = star1 && star2 ? [star1, star2] : undefined;
+    let starRange = star1 && star2 ? [star1 + '', star2 + ''] : undefined;
 
     //Format text for label
     let getDateRangeText = function() {

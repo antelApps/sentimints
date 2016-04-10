@@ -6,6 +6,7 @@ let UserActions = {};
 
 UserActions.getAllReviews = function(name, stars = [0, 5], dateRange = ['1900-01-01', '2100-01-01']) {
   return new Promise( function(resolve, reject) {
+
     let URIname = encodeURIComponent(name);
     let uri = '/api/mint?business_name=' + URIname + '&business_stars=' + stars[0] + '_' + stars[1] + '&business_dates=' + dateRange[0] + '_' + dateRange[1];
     $.ajax({ url: uri })
