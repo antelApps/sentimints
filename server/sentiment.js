@@ -7,14 +7,15 @@
   Both return an object that looks like this:
   {
 	aggregate: {
-	  all: {Summary stats of all},
-	  positive: {Summary stats of positive},
-	  negative: {Summary stats of negative}
+	  all: [{name: "all_num", value: 8, group: "all"}, {name: "all_min", value: -0.342, group: "all"}]
+	  positive: [array of summary stats formattted like above]
+	  negative: [array fo summary stats formatted like above]
 	},
 	topical: {
-	  worst: [Array of topics with lower 25th percentile (by median), each formatted: {topic: "Blah", stats: Summary stats}],
-	  best: [Array of topics with upper 25th percentile (by median)],
-	  hot: [Array of top 25th percentile of popularity]
+	  worst: {topic: "topic", stats: [{name: "topic_num", value: 3, group: "worst"}, {}, ], {}, ]}
+	    - each element of the array repressents a topic in the lower 25th percentile (by median)
+	  best: [same formatting as worst]
+	  hot: [same formatting]
 	}
   }
 
@@ -346,6 +347,40 @@ let summStatsAggregates = function(aggregateArray, sentiment) {
 
 
 
+/*
+  Takes an object with summary statistics, a name, and a group
+  Returns an array with each element in the summary stats broken out like: 
+    [{name: name_summStatThing, value: value, group: "worst"}, {}]
+*/
+let repackageAsArray = function(summStatObj, nameString, groupString) {
+	let newArr = [];
+
+	for (var k in summStatObj) {
+		let keyObj = {};
+		keyObj.name = nameString + '_' + k;
+		keyObj.value = summStatObj[k];
+		keyObj.group = groupString;
+		newArr.push(keyObj)
+	}
+
+	return newArr;
+}
+
+
+/*
+  Takes an array of topic objects
+  Transforms each according to repackage as array, using the topic as the nameString
+*/
+let repackageTopicArr = function(arr, groupString) {
+	return arr.map( (topicObj) => {
+		let topic = topicObj.topic;
+		let statsArray = repackageAsArray(topicObj.stats, topic, groupString);
+		console.log('statsArray for topic', topic, 'is', statsArray);
+		return {topic: topic, stats: statsArray}
+	})
+}
+
+
 
 
 /*
@@ -383,19 +418,17 @@ let getAll = function(arrayOfTexts) {
 	}))
 	.then( function() {
 		//handle reviewAggregates
-		allData.aggregate.all = summStatsAggregates(reviewAggregates);
-		allData.aggregate.positive = summStatsAggregates(reviewAggregates, 'positive');
-		allData.aggregate.negative = summStatsAggregates(reviewAggregates, 'negative');
+		allData.aggregate.all = repackageAsArray( summStatsAggregates(reviewAggregates), "all", "all");
+		allData.aggregate.positive = repackageAsArray( summStatsAggregates(reviewAggregates, 'positive'), "positive", "postive");
+		allData.aggregate.negative = repackageAsArray( summStatsAggregates(reviewAggregates, 'negative'), "negative, negative");
 
 		//handle allSentiments
-		console.log('all sentiments before summary', allSentiments);
 		let summarizedTopics = topicsScores(topicsMap(allSentiments));
-		console.log('topics are', summarizedTopics)
 		let frequencySummaryStatistics = topicFrequencies(summarizedTopics);
 		let medianSummaryStatistics = summStatsOfMedians(summarizedTopics);
-		allData.topical.worst = getBottomQuartile(summarizedTopics, medianSummaryStatistics);
-		allData.topical.best = getTopQuartile(summarizedTopics, medianSummaryStatistics);
-		allData.topical.hot = mostPopular(summarizedTopics, frequencySummaryStatistics);
+		allData.topical.worst = repackageTopicArr( getBottomQuartile(summarizedTopics, medianSummaryStatistics), "worst");
+		allData.topical.best = repackageTopicArr( getTopQuartile(summarizedTopics, medianSummaryStatistics), "best");
+		allData.topical.hot = repackageTopicArr( mostPopular(summarizedTopics, frequencySummaryStatistics), "hot");
 
 		return allData;
 	})
@@ -408,7 +441,7 @@ module.exports.getAll = getAll;
   calls getAll on them
 */
 let getAllFromReviews = function(reviewsArray) {
-  console.log('IN GET ALL')
+  // console.log('IN GET ALL')
 	let reviewsText = reviewsArray.map( review => review.review_text)
 	return getAll(reviewsText);
 }
@@ -417,7 +450,7 @@ module.exports.getAllFromReviews = getAllFromReviews;
 
 
 
-//The below is for 'tests'
+// The below is for 'tests'
 
 // let myWords = [
 //   'Amazing So nice people Helpful Friendly Wonderful food Amazing unique drinks and ingredients',
@@ -434,6 +467,8 @@ module.exports.getAllFromReviews = getAllFromReviews;
 // return getAll(myWords)
 //   .then(function(x) {
 //   	console.log('got x', x)
+//   	console.log('x has topic thing', x.topical);
+//   	console.log('best', x.topical.best);
 //   })
 
 
