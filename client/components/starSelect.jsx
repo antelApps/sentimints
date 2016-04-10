@@ -9,9 +9,9 @@ export default class StarSelect extends React.Component{
 
 	render(){
 		return (
-			<div>
-			  <select onChange={this.handleChange.bind(this)}>
-			  	{[1,2,3,4,5].map(function(cur, index){
+      <div className="selectContainer starSelect">
+			  <select className="form-control" onChange={this.handleChange.bind(this)}>
+			  	{['-- Select a Rating --', 1,2,3,4,5].map(function(cur, index){
 			  		return (<option key={index} value={cur}> {cur} </option>)
 			  	})}
 			  </select>
