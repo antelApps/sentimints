@@ -4,8 +4,10 @@ import Promise from "bluebird";
 
 import Menu from "./menu.jsx"
 import Navbar from "./navbar.jsx"
-import AggChart from './aggChart.jsx'
+import Chartbucket from './chartbucket.jsx'
+
 import UserActions from '../actions/userActions.jsx'
+
 
 class App extends React.Component {
 
@@ -84,7 +86,7 @@ class App extends React.Component {
 			<div>
 			  <Navbar/>
 				<Menu onSearch={this.handleSearch.bind(this)}/>
-        <AggChart className="data-vis" width={180} height={60} data={[10, 16, 5, 22, 3, 11]} />
+        <Chartbucket />
         {/* Footer with powered by __ */}
       </div>
     )
