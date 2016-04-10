@@ -6,21 +6,21 @@ export default class AggregateChart extends React.Component{
 
   render () {
 
-
-var data =  { topic: 'bed', stats: 
-    [ { name: 'bed_num', value: 2, group: 'best' },
-      { name: 'bed_sum', value: 0.10598629929273662, group: 'best' },
-      { name: 'bed_avg', value: 0.05299314964636831, group: 'best' },
-      { name: 'bed_min', value: -0.7176687736973063, group: 'best' },
-      { name: 'bed_q1', value: -0.7176687736973063, group: 'best' },
-      { name: 'bed_median', value: 0.05299314964636831, group: 'best' },
-      { name: 'bed_q3', value: 0.8236550729900429, group: 'best' },
-      { name: 'bed_max', value: 0.8236550729900429, group: 'best' } 
-    ] 
-   };
+    var data = this.props.data;
+// var data =  { topic: 'bed', stats: 
+//     [ { name: 'bed_num', value: 2, group: 'best' },
+//       { name: 'bed_sum', value: 0.10598629929273662, group: 'best' },
+//       { name: 'bed_avg', value: 0.05299314964636831, group: 'best' },
+//       { name: 'bed_min', value: -0.7176687736973063, group: 'best' },
+//       { name: 'bed_q1', value: -0.7176687736973063, group: 'best' },
+//       { name: 'bed_median', value: 0.05299314964636831, group: 'best' },
+//       { name: 'bed_q3', value: 0.8236550729900429, group: 'best' },
+//       { name: 'bed_max', value: 0.8236550729900429, group: 'best' } 
+//     ] 
+//    };
 
 var sampleSize = data.stats.shift();
-var topic = data.topic;
+var topic = data.topic.toUpperCase();
 //first forEach topic subarray stats
 //this is just the for each on render
 
@@ -70,8 +70,13 @@ var topic = data.topic;
       var yAxis = d3.svg.axis()
     .scale(y)
     .orient('left')
-    // .append('text')
-    // .text(topic);
+
+    main.append('text')
+        .attr('x', 10)
+        .attr('y', -5)
+        .style('text-anchor', 'middle')
+        .style('font-size', 15)
+        .text(topic)
 
   main.append('g')
     .attr('transform', 'translate(0,0)')
