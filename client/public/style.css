@@ -63,7 +63,12 @@ html, body{
   border: 1px solid transparent;
 }
 .view-options > button:hover{
-  border: 1px solid white;
+  background-color: grey;
+  color: white;
+}
+
+.view-options > button:focus{
+  outline: none;
 }
 .content{
 }

@@ -13,26 +13,26 @@ export default class Chartbucket extends React.Component {
     super();
     this.state = {
       current: null,
-      positive_active: 'active',
-      negative_active: 'inactive',
+      best_active: 'active',
+      worst_active: 'inactive',
       hot_active: 'inactive'
     }
 	}
 
   	handleClick(type) {
       this.setState({current: this.props.data_topical[type]});
-		// let relevantStates = ['aggregate_active', 'positive_active', 'negative_active', 'hot_active'];
-		// let active = relevantStates.filter( state => this.state[state] === 'active')[0]
-		// console.log('actiive is', active);
-		// if (active !== type + '_active') { //need to change which is active
-		// 	let inactiveOld = {};
-		// 	inactiveOld[active] = 'inactive';
-		// 	this.setState(inactiveOld);
+		let relevantStates = ['best_active', 'worst_active', 'hot_active'];
+		let active = relevantStates.filter( state => this.state[state] === 'active')[0]
+		console.log('actiive is', active);
+		if (active !== type + '_active') { //need to change which is active
+			let inactiveOld = {};
+			inactiveOld[active] = 'inactive';
+			this.setState(inactiveOld);
 
-		// 	let activateNew = {};
-		// 	activateNew[type + '_active'] = 'active';
-		// 	this.setState(activateNew);
-		// }
+			let activateNew = {};
+			activateNew[type + '_active'] = 'active';
+			this.setState(activateNew);
+		}
 	}
 
   render() {
@@ -43,8 +43,8 @@ export default class Chartbucket extends React.Component {
   	return ( 
   	<div className="chartbucket"> 
 	  	<div className="view-options">
-	  	  <button className={this.state.positive_active === 'active' ? "view-btn btn-primary" : "view-btn"} onClick={this.handleClick.bind(this, 'best')}>Consumers Love These</button>
-	  	  <button className={this.state.negative_active === 'active' ? "view-btn btn-primary" : "view-btn"} onClick={this.handleClick.bind(this, 'worst')}>Consumers Hate These</button>
+	  	  <button className={this.state.best_active === 'active' ? "view-btn btn-primary" : "view-btn"} onClick={this.handleClick.bind(this, 'best')}>Consumers Love These</button>
+	  	  <button className={this.state.worst_active === 'active' ? "view-btn btn-primary" : "view-btn"} onClick={this.handleClick.bind(this, 'worst')}>Consumers Hate These</button>
 	  	  <button className={this.state.hot_active === 'active' ? "view-btn btn-primary" : "view-btn"} onClick={this.handleClick.bind(this, 'hot')}>Most Mentioned</button>
 	  	</div>
   		<h4>{this.props.title}</h4>
