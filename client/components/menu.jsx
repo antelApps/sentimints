@@ -61,7 +61,6 @@ export default class Menu extends React.Component{
 		}
 	}
 
-<<<<<<< cbd0624fe73cf244f0980d6fd1b837a49e2a0ae2
 	handleButtonClick(){
 		this.props.onSearch(this.state.startDate, this.state.endDate, this.state.business, this.state.startStar, this.state.endStar);
 	}
