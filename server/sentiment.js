@@ -45,7 +45,7 @@ const resultUrl = 'https://api.havenondemand.com/1/job/result/';
 const API_URL = '?apikey=' + api;
 
 
-
+console.log('api KEY:', api)
 
 
 /*
@@ -54,6 +54,7 @@ const API_URL = '?apikey=' + api;
 */
 let getResult = function(resultFromAPI) {
 	let parsed = JSON.parse(resultFromAPI);
+	console.log('got this from the api', resultFromAPI)
 	return parsed.actions[0].result;
 }
 
@@ -91,6 +92,7 @@ let analyzeText = function(textString) {
 	return new Promise( function(resolve, reject) {
 		client.call('analyzesentiment', data, true, function(err, resp, body) {
 			if (err) {
+				console.log('error in clinet.call', err);
 				reject('Error creating sentiment job', err);
 			} else {
 				let id = body.data.jobID;
@@ -105,6 +107,7 @@ let analyzeText = function(textString) {
 		return getResult(result);
 	})
 	.catch( function(err) {
+		console.log('ERROR GETTING DATA FROM API');
 		throw err;
 	})
 }
@@ -417,6 +420,7 @@ let getAll = function(arrayOfTexts) {
 		  })
 	}))
 	.then( function() {
+		console.log('have gotten all sentiment analysis')
 		//handle reviewAggregates
 		allData.aggregate.all = repackageAsArray( summStatsAggregates(reviewAggregates), "all", "all");
 		allData.aggregate.positive = repackageAsArray( summStatsAggregates(reviewAggregates, 'positive'), "positive", "postive");

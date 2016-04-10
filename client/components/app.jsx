@@ -49,23 +49,31 @@ class App extends React.Component {
     //Make the request and update the state
     return new Promise( function(resolve, reject) {
       if (dateRange && starRange) {
+        console.log('will call get all reviews');
         return UserActions.getAllReviews(business, starRange, dateRange)
           .then( function(data) {
+            console.log('got data', data);
             resolve(data);
           })
       } else if (dateRange) {
+        console.log('get reviews by date');
         return UserActions.getReviewsByDate(business, dateRange)
           .then( function(data) {
+            console.log('got data', data);
             resolve(data);
           })
       } else if (starRange) {
+        console.log('getting reviews by stars');
         return UserActions.getReviewsByStars(business, starRange)
           .then( function(data) {
+            console.log('got data', data);
             resolve(data);
           })
       } else {
+        console.log('will call get all reviews');
         return UserActions.getAllReviews(business)
         .then( function(data) {
+          console.log('got data', data);
           resolve(data);
         })
       }
