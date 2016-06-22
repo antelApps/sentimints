@@ -9,7 +9,6 @@
     1. [Database](#database-setup)
     1. [Contributing](#contributing)
 
-
 ##About Us
 
 Senitmints was built for the April 2016 AngelHack Austin Hackathon. We used [HPE Haven OnDemand](https://dev.havenondemand.com/apis/analyzesentiment#overview) Sentiment API to analyze Yelp customer reviews.
@@ -17,6 +16,8 @@ Senitmints was built for the April 2016 AngelHack Austin Hackathon. We used [HPE
 We used Yelp's [academic dataset](https://www.yelp.com/dataset_challenge) and pulled 10 business with a substantial number of reviews to demo the app with.
 
 Upon receiving the sentiment data from the Haven OnDemand we manipulated the data to create summary statistics of the likes, dislikes, and popular topics amoungst reviewers as well as the distribution and strength of those sentiments amongst the reviewers. We then plotted each of these topics for the user using D3.js.
+
+For more information about this project see the [blog post on HPE Haven OnDemand](https://community.havenondemand.com/t5/Blog/AngelHack-Austin-Customer-Reactions-App/ba-p/2804).
 
 ###The Team
 
